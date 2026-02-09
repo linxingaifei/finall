@@ -1,0 +1,25 @@
+{
+  "inbounds": [
+    {
+      "type": "tun",
+      "interface_name": "tun0",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": false,
+      "strict_route": false
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "selector",
+      "tag": "proxy",
+      "outbounds": ["node1"]
+    },
+    {
+      "type": "vless",
+      "tag": "node1",
+      "server": "example.com",
+      "server_port": 443,
+      "uuid": "xxxxxxxx"
+    }
+  ]
+}

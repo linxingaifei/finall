@@ -1,0 +1,18 @@
+config zone
+    option name 'lan'
+    option input 'ACCEPT'
+    option output 'ACCEPT'
+    option forward 'ACCEPT'
+    list network 'lan'
+
+config zone
+    option name 'wan'
+    option input 'ACCEPT'
+    option output 'ACCEPT'
+    option forward 'ACCEPT'
+    option masq '1'
+    list network 'wan'
+
+config forwarding
+    option src 'lan'
+    option dest 'wan'

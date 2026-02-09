@@ -1,0 +1,5 @@
+#!/bin/sh /etc/rc.common
+START=99
+start() {
+    /usr/bin/ip-qos-apply
+}

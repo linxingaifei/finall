@@ -1,0 +1,2 @@
+/usr/bin/npc -config /etc/npc.conf &
+exit 0

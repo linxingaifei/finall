@@ -1,0 +1,15 @@
+config pbr 'config'
+    option enabled '1'
+    option strict_enforcement '1'
+
+# 示例：IP → tun（sing-box）
+config policy
+    option name 'ip1-to-tun'
+    option src_addr '192.168.1.100'
+    option interface 'tun'
+
+# 示例：IP → WAN
+config policy
+    option name 'ip2-to-wan'
+    option src_addr '192.168.1.101'
+    option interface 'wan'

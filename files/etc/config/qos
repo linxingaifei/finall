@@ -1,0 +1,9 @@
+config interface 'lan'
+    option enabled '1'
+    option upload '100000'
+    option download '100000'
+
+config class
+    option ip '192.168.1.100'
+    option upload '20000'
+    option download '20000'

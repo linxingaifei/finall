@@ -1,0 +1,6 @@
+proxy-providers:
+  sub1:
+    type: http
+    url: "https://example.com/sub"
+    interval: 3600
+    path: ./providers/sub1.yaml

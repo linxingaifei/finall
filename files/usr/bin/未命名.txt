@@ -1,0 +1,2 @@
+#!/bin/sh
+tc qdisc add dev br-lan root cake bandwidth 100mbit
