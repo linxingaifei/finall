@@ -1,0 +1,6 @@
+#!/bin/sh
+/etc/init.d/sing-box enable
+/etc/init.d/sing-box start
+/etc/init.d/pbr enable
+/etc/init.d/pbr start
+exit 0
