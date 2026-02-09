@@ -1,6 +1,11 @@
 config pbr 'config'
-    option enabled '1'
-    option strict_enforcement '1'
+	option enabled '1'
+
+config policy
+	option name 'lan-to-singbox'
+	option src_addr '192.168.1.0/24'
+	option interface 'sb-tun0'
+
 
 # 示例：IP → tun（sing-box）
 config policy
