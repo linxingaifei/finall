@@ -1,25 +1,58 @@
 {
+  "log": {
+    "level": "info"
+  },
   "inbounds": [
     {
       "type": "tun",
-      "interface_name": "tun0",
-      "inet4_address": "172.19.0.1/30",
+      "tag": "sb-tun",
+      "interface_name": "sb-tun0",
+      "mtu": 1500,
       "auto_route": false,
-      "strict_route": false
+      "stack": "system"
     }
   ],
   "outbounds": [
     {
       "type": "selector",
       "tag": "proxy",
-      "outbounds": ["node1"]
+      "outbounds": [
+        "node_a",
+        "node_b"
+      ]
+    },
+    {
+      "type": "socks",
+      "tag": "node_a",
+      "server": "1.2.3.4",
+      "server_port": 1080
     },
     {
       "type": "vless",
-      "tag": "node1",
-      "server": "example.com",
+      "tag": "node_b",
+      "server": "5.6.7.8",
       "server_port": 443,
-      "uuid": "xxxxxxxx"
+      "uuid": "UUID-HERE",
+      "flow": "xtls-rprx-vision",
+      "tls": {
+        "enabled": true
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
     }
-  ]
+  ],
+  "route": {
+    "auto_detect_interface": true,
+    "rules": [
+      {
+        "geoip": ["cn"],
+        "outbound": "direct"
+      },
+      {
+        "outbound": "proxy"
+      }
+    ]
+  }
 }
